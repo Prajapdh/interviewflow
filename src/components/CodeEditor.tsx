@@ -1,5 +1,6 @@
 import { CODING_QUESTIONS, LANGUAGES } from "@/constants";
 import { useState } from "react";
+import Image from 'next/image';
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "./ui/resizable";
 import { ScrollArea, ScrollBar } from "./ui/scroll-area";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
@@ -58,27 +59,29 @@ function CodeEditor() {
 
                   <Select value={language} onValueChange={handleLanguageChange}>
                     <SelectTrigger className="w-[150px]">
-                      {/* SELECT VALUE */}
                       <SelectValue>
                         <div className="flex items-center gap-2">
-                          <img
+                          <Image
                             src={`/${language}.png`}
                             alt={language}
-                            className="w-5 h-5 object-contain"
+                            width={20}
+                            height={20}
+                            className="object-contain"
                           />
                           {LANGUAGES.find((l) => l.id === language)?.name}
                         </div>
                       </SelectValue>
                     </SelectTrigger>
-                    {/* SELECT CONTENT */}
                     <SelectContent>
                       {LANGUAGES.map((lang) => (
                         <SelectItem key={lang.id} value={lang.id}>
                           <div className="flex items-center gap-2">
-                            <img
+                            <Image
                               src={`/${lang.id}.png`}
                               alt={lang.name}
-                              className="w-5 h-5 object-contain"
+                              width={20}
+                              height={20}
+                              className="object-contain"
                             />
                             {lang.name}
                           </div>
@@ -86,6 +89,7 @@ function CodeEditor() {
                       ))}
                     </SelectContent>
                   </Select>
+
                 </div>
               </div>
 

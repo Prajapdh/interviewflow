@@ -99,7 +99,7 @@ function InterviewScheduleUI() {
         interviewerIds: user?.id ? [user.id] : [],
       });
     } catch (error) {
-      console.error(error);
+      console.error(`Failed to schedule meeting: ${error}`);
       toast.error("Failed to schedule meeting. Please try again.");
     } finally {
       setIsCreating(false);

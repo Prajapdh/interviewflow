@@ -12,7 +12,8 @@ const useMeetingActions = () => {
     try {
       const id = crypto.randomUUID();
       const call = client.call("default", id);
-
+      console.log(`Creating instant meeting with ID: ${id}`);
+      console.log(`Call: ${call}`);
       await call.getOrCreate({
         data: {
           starts_at: new Date().toISOString(),
